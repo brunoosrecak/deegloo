@@ -1,0 +1,38 @@
+/**
+ *  Task 1: Implement getValue method. The getValue method should take
+ *  an object and a path as arguments, and return the value at
+ *  the specified path in the object.
+ *
+ *  'path' is a string that represents the path to the value in object
+ *  (e.g. "company.address.street" for the street property
+ *  of the address property of the company property of object).
+ */
+
+function getValue(object, path) {
+  let value;
+  value = path.split('.').reduce((a, b) => a && a[b], object);
+  return value;
+}
+
+
+const employee = {
+  name: "John",
+  surname: "Doe",
+  position: "Frontend Developer",
+  company: {
+    info: {
+      email: "info@deegloo.com"
+    },
+    address: {
+      city: "Zagreb",
+      street: "Zadarska 80",
+      zipCode: 10000
+    }
+  }
+};
+
+const path = "company.address.street";
+
+const extractedValue = getValue(employee, path);
+
+console.log("Value extracted from object is: ", extractedValue);
