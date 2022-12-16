@@ -1,0 +1,54 @@
+/**
+ * Task 2: Instead of indexing every element, rewrite this code so it
+ * dynamically adds all projects to the DOM (no matter how many there are).
+ */
+
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import "./styles.css";
+
+const projects = [
+  {
+    title: "My Dairy Dashboard",
+    description:
+      "Building a platform that connects and visualizes data for customers in the Dairy industry. Allowing users to take the right actions, fast."
+  },
+  {
+    title: "Mobile Manifest",
+    description:
+      "Mobile application that provides electronic tracking of milk movement from farm to plant, which consequently eliminates the need for paper-based manifests."
+  },
+  {
+    title: "Dairy Revenue Protection",
+    description:
+      "Dairy Revenue Protection solution offers insurance against unexpected declines in the quarterly revenue from milk sales when compared to a guaranteed coverage level."
+  },
+  {
+    title: "Producer Forward Contracting",
+    description:
+      "Forward Contracting Tracker is a web-based tool that enables Futures and Options trading based on managed Forward Contract Programs."
+  },
+  {
+    title : "X",
+    description: "Y"
+  }
+];
+
+export default function App() {
+  return (
+    <div className="App">
+      <h1>Projects</h1>
+      {projects.map((element, i) => {
+      return  <List id="list">
+              <ListItem alignItems="flex-start">
+              <ListItemText
+                primary={projects[i].title}
+                secondary={projects[i].description} 
+              />
+              </ListItem>
+              </List>
+      })}
+    </div>
+  );
+}
