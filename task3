@@ -1,0 +1,30 @@
+/**
+ * Task 3: Implement the focus functionality so that when the
+ * "Focus" button is pressed, input is in focus.
+ * Hint: you'll need to use some react hooks
+ */
+
+import "./styles.css";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Stack from "@mui/material/Stack";
+import { useRef } from "react";
+
+export default function App() {
+
+  const aInput = useRef(null);
+
+  const onButtonClick = () => {
+    aInput.current.focus();
+  }
+
+  return (
+    <div className="App">
+      <h2>Focus on input</h2>
+      <Stack id="stack" direction="row" spacing={2}>
+        <TextField ref={aInput} id="outlined-basic" label="Input something" />
+        <Button variant="contained" onClick={onButtonClick}>Focus</Button>
+      </Stack>
+    </div>
+  );
+}
